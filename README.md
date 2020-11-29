@@ -35,7 +35,12 @@ You can install the released version of `smartr` from
 install.packages("smartr")
 ```
 
-You can install the developmoent version of `smartr` from
-[GitHub](https://github.com/nutriverse/smartr)
+You can install the development version of `smartr` from
+[GitHub](https://github.com/nutriverse/smartr):
+
+``` r
+if(!require(remotes)) install.packages("remotes")
+remotes::install_github("nutriverse/smartr")
+```
 
 ## Usage
