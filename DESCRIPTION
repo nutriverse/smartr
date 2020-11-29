@@ -16,6 +16,15 @@ Description: SMART is an inter-agency initiative launched in 2002 by a network
     (for rapid assessment of acute emergencies) and technical soundness. This
     packages provides functions to perform the various analysis used in SMART.
 License: GPL-3
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    sampsizer (>= 0.1.0),
+    anthrocheckr (>= 0.1.0),
+    dplyr
+Remotes: 
+    ernestguevarra/sampsizer,
+    nutriverse/anthrocheckr
 Encoding: UTF-8
 Language: en-GB
 LazyData: true
