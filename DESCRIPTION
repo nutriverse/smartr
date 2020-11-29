@@ -21,7 +21,8 @@ Depends:
 Suggests: 
     sampsizer (>= 0.1.0),
     anthrocheckr (>= 0.1.0),
-    dplyr
+    dplyr,
+    spelling
 Remotes: 
     ernestguevarra/sampsizer,
     nutriverse/anthrocheckr
