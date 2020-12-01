@@ -89,54 +89,134 @@ ui <- dashboardPage(
       ## Planning
       tabItem(
         tabName = "planning",
-        column(
-          width = 12,
-          box(
-            title = "Sampling and Sample Size",
-            solidHeader = TRUE,
-            status = "primary",
-            div(style="display:inline-block; vertical-align:middle;",
-              textInput(
-                inputId = "survey_name",
-                label = "Name of survey",
-                placeholder = "Name of survey"
+        fluidRow(
+          column(
+            width = 6,
+            box(
+              title = "Sampling and Sample Size",
+              width = NULL,
+              solidHeader = TRUE,
+              status = "primary",
+              div(style="display:inline-block; vertical-align:middle;",
+                textInput(
+                  inputId = "survey_name",
+                  label = "Name of survey",
+                  placeholder = "Name of survey"
+                )
+              ),
+              div(style="display:inline-block; vertical-align:middle;",
+                radioButtons(
+                  inputId = "survey_sampling_type",
+                  label = "Sampling",
+                  choices = c("Random", "Cluster"),
+                  inline = TRUE,
+                  selected = "Cluster"
+                )
               )
             ),
-            div(style="display:inline-block; vertical-align:middle;",
-              radioButtons(
-                inputId = "survey_sampling_type",
-                label = "Sampling",
-                choices = c("Random", "Cluster"),
-                inline = TRUE,
-                selected = "Cluster"
+            box(
+              title = "Sample size - anthropometry",
+              width = NULL,
+              solidHeader = TRUE,
+              status = "primary",
+              div(style="display:inline-block; vertical-align:middle;",
+                numericInput(
+                  inputId = "est_p",
+                  label = "Estimated prevalence (%)",
+                  value = 20,
+                  min = 0,
+                  max = 100,
+                  step = 1,
+                  width = "225px"
+                )
+              ),
+              div(style="display:inline-block; vertical-align:middle;",
+                numericInput(
+                  inputId = "hh_size",
+                  label = "Average household size",
+                  value = 5,
+                  min = 1,
+                  max = 20,
+                  step = 1,
+                  width = "225px"
+                )
+              ),
+              div(style="display:inline-block; vertical-align:middle;",
+                numericInput(
+                  inputId = "precision",
+                  label = "Desired precision (%)",
+                  value = 5,
+                  min = 1,
+                  max = 10,
+                  step = 0.5,
+                  width = "225px"
+                )
+              ),
+              div(style="display:inline-block; vertical-align:middle;",
+                numericInput(
+                  inputId = "u5_perc",
+                  label = "% of children under 5 years",
+                  value = 15,
+                  min = 5,
+                  max = 30,
+                  step = 0.1,
+                  width = "225px"
+                )
+              ),
+              div(style="display:inline-block; vertical-align:middle;",
+                numericInput(
+                  inputId = "deff",
+                  label = "Design effect",
+                  value = 1.5,
+                  min = 1,
+                  max = 5,
+                  step = 0.1,
+                  width = "225px"
+                )
+              ),
+              div(style="display:inline-block; vertical-align:middle;",
+                numericInput(
+                  inputId = "hh_nr",
+                  label = "% of non-responding households",
+                  value = 3,
+                  min = 1,
+                  max = 10,
+                  step = 1,
+                  width = "225px"
+                )
+              ),
+              valueBox(
+                value = "X",
+                subtitle = "Children to be included",
+                icon = icon(name = "child",
+                            lib = "font-awesome",
+                            class = "fa-med"),
+                width = 6
+              ),
+              valueBox(
+                value = "Y",
+                subtitle = "Households to be included",
+                icon = icon(name = "house-user",
+                            lib = "font-awesome",
+                            class = "fa-med"),
+                width = 6
               )
+            ),
+            box(
+              title = "Sample size - mortality rate",
+              width = NULL,
+              solidHeader = TRUE,
+              status = "primary"
             )
           ),
-          box(
-            title = "Sample size - anthropometry",
-            solidHeader = TRUE,
-            status = "primary",
-            numericInput(
-              inputId = "est_p",
-              label = "Estimated prevalence (%)",
-              value = 20,
-              min = 0,
-              max = 100,
-              step = 1
+          column(
+            width = 6,
+            box(
+              title = "Cluster sampling",
+              width = NULL,
+              solidHeader = TRUE,
+              status = "primary"
             )
-          ),
-          box(
-            title = "Sample size - mortality rate",
-            solidHeader = TRUE,
-            status = "primary"
-          )
-        ),
-        column(
-          width = 6,
-          box(
-            title = "Cluster sampling",
-            solidHeader = TRUE,
-            status = "primary"
           )
         )
       ),
