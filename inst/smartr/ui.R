@@ -97,92 +97,93 @@ ui <- dashboardPage(
               width = NULL,
               solidHeader = FALSE,
               status = "success",
-              div(style="display:inline-block; vertical-align:middle;",
-                textInput(
-                  inputId = "survey_name",
-                  label = "Name of survey",
-                  placeholder = "Name of survey"
-                )
+              textInput(
+                inputId = "survey_name",
+                label = "Name of survey",
+                placeholder = "Name of survey"
               ),
-              div(style="display:inline-block; vertical-align:middle;",
-                radioButtons(
-                  inputId = "survey_sampling_type",
-                  label = "Sampling",
-                  choices = c("Random", "Cluster"),
-                  inline = TRUE,
-                  selected = "Cluster"
-                )
+              radioButtons(
+                inputId = "survey_sampling_type",
+                label = "Sampling",
+                choices = c("Random", "Cluster"),
+                inline = TRUE,
+                selected = "Cluster"
               )
-            ),
+            )
+          )
+        ),
+        fluidRow(
+          column(
+            width = 6,
             box(
               title = "Sample size - anthropometry",
               width = NULL,
               solidHeader = FALSE,
               status = "success",
               div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
+                sliderInput(
                   inputId = "est_prevalence",
                   label = "Estimated prevalence (%)",
                   value = 20,
                   min = 0,
                   max = 100,
                   step = 1,
-                  width = "150px"
+                  width = "215px"
                 )
               ),
               div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
-                  inputId = "hh_size",
-                  label = "Average household size",
-                  value = 5,
-                  min = 1,
-                  max = 20,
-                  step = 1,
-                  width = "150px"
-                )
-              ),
-              div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
+                sliderInput(
                   inputId = "precision",
                   label = "Desired precision (%)",
                   value = 5,
                   min = 1,
                   max = 10,
                   step = 0.5,
-                  width = "150px"
+                  width = "215px"
                 )
               ),
               div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
-                  inputId = "u5_perc",
-                  label = "% under 5 years",
-                  value = 15,
-                  min = 5,
-                  max = 30,
-                  step = 0.1,
-                  width = "150px"
-                )
-              ),
-              div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
+                sliderInput(
                   inputId = "deff",
                   label = "Design effect",
                   value = 1.5,
                   min = 1,
                   max = 5,
                   step = 0.1,
-                  width = "150px"
+                  width = "215px"
                 )
               ),
               div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
+                sliderInput(
+                  inputId = "hh_size",
+                  label = "Average household size",
+                  value = 5,
+                  min = 1,
+                  max = 20,
+                  step = 1,
+                  width = "215px"
+                )
+              ),
+              div(style="display:inline-block; vertical-align:middle;",
+                sliderInput(
+                  inputId = "u5_perc",
+                  label = "% under 5 years",
+                  value = 15,
+                  min = 5,
+                  max = 30,
+                  step = 0.1,
+                  width = "215px"
+                )
+              ),
+              div(style="display:inline-block; vertical-align:middle;",
+                sliderInput(
                   inputId = "hh_nr",
                   label = "% non-response",
                   value = 3,
                   min = 1,
                   max = 10,
                   step = 1,
-                  width = "150px"
+                  width = "215px"
                 )
               ),
               valueBox(
@@ -203,53 +204,53 @@ ui <- dashboardPage(
                 color = "light-blue",
                 width = 6
               )
-            ),
+            )
+          ),
+          column(
+            width = 6,
             box(
               title = "Sample size - mortality rate",
               width = NULL,
               solidHeader = FALSE,
               status = "success",
-              div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
-                  inputId = "death_rate",
-                  label = "Estimated death rate per 10,000/day",
-                  value = 0.5,
-                  min = 0.1,
-                  max = 2,
-                  step = 0.1,
-                  width = "150px"
-                )
+              sliderInput(
+                inputId = "death_rate",
+                label = "Estimated death rate per 10,000/day",
+                value = 0.5,
+                min = 0.1,
+                max = 2,
+                step = 0.1,
+                width = "250px"
+              ),
+              sliderInput(
+                inputId = "death_precision",
+                label = "Desired precision per 10,000/day",
+                value = 0.3,
+                min = 0.1,
+                max = 1,
+                step = 0.1,
+                width = "250px"
               ),
               div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
-                  inputId = "death_precision",
-                  label = "Desired precision per 10,000/day",
-                  value = 0.3,
-                  min = 0.1,
-                  max = 1,
-                  step = 0.1,
-                  width = "150px"
-                )
-              ),
-              div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
+                sliderInput(
                   inputId = "death_deff",
                   label = "Design effect",
                   value = 1.5,
                   min = 1,
                   max = 10,
                   step = 0.5,
-                  width = "150px"
+                  width = "215px"
                 )
               ),
               div(style="display:inline-block; vertical-align:middle;",
-                numericInput(
+                sliderInput(
                   inputId = "recall",
                   label = "Recall period (days)",
                   value = 93,
                   min = 10,
                   max = 180,
-                  width = "150px"
+                  step = 1,
+                  width = "215px"
                 )
               ),
               valueBox(
@@ -271,20 +272,37 @@ ui <- dashboardPage(
                 width = 6
               )
             )
-          ),
-          column(
-            width = 8,
-            box(
-              title = "Cluster sampling",
-              width = NULL,
-              solidHeader = FALSE,
-              status = "success"
-            )
+          )
+        ),
+        fluidRow(
+          box(
+            title = "Cluster sampling",
+            width = 12,
+            solidHeader = FALSE,
+            status = "success"
           )
         )
       ),
       tabItem(
-        tabName = "training"
+        tabName = "training",
+        fluidRow(
+          box(
+            title = "Standardisation Test Data",
+            width = 4,
+            solidHeader = TRUE,
+            status = "success",
+            fileInput(
+              inputId = "std_test_data",
+              label = "Upload standardisation test data"
+            )
+          ),
+          box(
+            title = "Identify variables",
+            width = 8,
+            solidHeader = TRUE,
+            status = "success"
+          )
+        )
       )
     )
   )
