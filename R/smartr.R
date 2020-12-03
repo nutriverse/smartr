@@ -15,6 +15,8 @@
 #' @docType package
 #' @name smartr
 #' @keywords internal
+#' @importFrom magrittr %>%
+#' @importFrom stringr str_replace_all
 #'
 #
 ################################################################################
