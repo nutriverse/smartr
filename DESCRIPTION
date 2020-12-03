@@ -22,7 +22,8 @@ Suggests:
     sampsizer (>= 0.1.0),
     anthrocheckr (>= 0.1.0),
     dplyr,
-    spelling
+    spelling,
+    googlesheets4
 Remotes: 
     ernestguevarra/sampsizer,
     nutriverse/anthrocheckr
@@ -30,3 +31,6 @@ Encoding: UTF-8
 Language: en-GB
 LazyData: true
 RoxygenNote: 7.1.1
+Imports: 
+    magrittr,
+    stringr
