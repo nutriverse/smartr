@@ -5,7 +5,7 @@
 #'
 #' @param name A string to name the newly created spreadsheet.
 #' @param sheets Optional input for initialising worksheets.
-#' @paramm view Logical. Should the newly created sheet be opened in the
+#' @param view Logical. Should the newly created sheet be opened in the
 #'   current browser? Default to TRUE.
 #'
 #' @return A spreadsheet with specified name and specified sheets
@@ -24,7 +24,7 @@
 #
 ################################################################################
 
-create_gsheet_form <- function(name, sheets = NULL) {
+create_gsheet_form <- function(name, sheets = NULL, view = TRUE) {
   if (!requireNamespace(package = "googlesheets4", quietly = TRUE)) {
     stop("The 'googlesheets4' package is required. Install to use this function.",
          call. = TRUE)
