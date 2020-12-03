@@ -108,6 +108,11 @@ ui <- dashboardPage(
                 choices = c("Random", "Cluster"),
                 inline = TRUE,
                 selected = "Cluster"
+              ),
+              checkboxInput(
+                inputId = "fpc",
+                label = "Finite population correction",
+                value = FALSE
               )
             )
           )
@@ -276,8 +281,28 @@ ui <- dashboardPage(
         ),
         fluidRow(
           box(
+            title = "Random number table",
+            width = 4,
+            solidHeader = TRUE,
+            status = "success"
+          ),
+          box(
+            title = "Random number table",
+            width = 8,
+            solidHeader = FALSE,
+            status = "success"
+          )
+        ),
+        fluidRow(
+          box(
             title = "Cluster sampling",
-            width = 12,
+            width = 4,
+            solidHeader = TRUE,
+            status = "success"
+          ),
+          box(
+            title = "Cluster sampling",
+            width = 8,
             solidHeader = FALSE,
             status = "success"
           )
