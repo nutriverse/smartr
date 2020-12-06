@@ -38,6 +38,7 @@ reference:
 
   - title: Sample size and sampling
     contents:
+    - calculate_ss_hh
     - roll_sum_range
     - get_si
     - get_pps
@@ -48,4 +49,5 @@ reference:
 
   - title: Dataset
     contents:
-    - clusterList
+    - villageList1
+    - villageList2

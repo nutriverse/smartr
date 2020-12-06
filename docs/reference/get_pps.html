@@ -163,42 +163,331 @@ for the population size information</p></td>
   identifies the cluster number and the reserved clusters.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_pps</span><span class='op'>(</span>df <span class='op'>=</span> <span class='va'>clusterList</span>, pop <span class='op'>=</span> <span class='st'>"pop"</span>, m <span class='op'>=</span> <span class='fl'>30</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;    cluster_id village_id              village_name  pop       cum_pop
-#&gt; 1          C1         12                     Ayata 1070     4306-5375
-#&gt; 2          C2         17                 Tinibilka  550   10596-11145
-#&gt; 3          C3         25      Berara tuwate tsehay  915   15446-16360
-#&gt; 4          C4         31        Fela Tuwate tsehay  960   21441-22400
-#&gt; 5          C5         43             Assinefechign  850   32116-32965
-#&gt; 6          C6         51                 Chewagisa  870   37356-38225
-#&gt; 7          C7         57                    Guassa 1270   41931-43200
-#&gt; 8          C8         67                     Derka 1020   47761-48780
-#&gt; 9          C9         76                    Gergas 1075   53530-54605
-#&gt; 10        C10         82                     Arero  610   58951-59560
-#&gt; 11        C11         95                   Betassa  751   69990-70740
-#&gt; 12        C12        102                      Jema  751   75496-76246
-#&gt; 13        C13        110               Dabosh Ager  515   80764-81278
-#&gt; 14        C14        126 Dolie Ager and Abaya ager 1030   86228-87258
-#&gt; 15        C15        133               Abageferssa  480   91524-92003
-#&gt; 16        C16        141                    Tigaja  805   97189-97993
-#&gt; 17        C17        154                    Jejero  514 102536-103050
-#&gt; 18        C18        162                     Yegof  885 107568-108452
-#&gt; 19        C19        168                   Bekimos  750 113113-113862
-#&gt; 20        C20        177                    Abecho  770 118623-119392
-#&gt; 21        C21        191          Doyenona Bukassa  720 129133-129852
-#&gt; 22        C22        200                  Abadeneb  450 134927-135377
-#&gt; 23        C23        210        Abiagerna Betoager  625 140488-141112
-#&gt; 24        C24        219              Lebona Derka  590 145553-146142
-#&gt; 25        C25        227                Dawud Ager  780 150753-151532
-#&gt; 26        C26        236                 Aba balie  735 156578-157312
-#&gt; 27        C27        245      Legelafetona Alebeko  645 162028-162672
-#&gt; 28        C28        265                    Gadula  630 172948-173577
-#&gt; 29        C29        274                     Washa  870 178048-178917
-#&gt; 30        C30        281                      Dego  945 183178-184122
-#&gt; 31        RC1        185                      Tiro  580 124203-124782
-#&gt; 32        RC2         89                 Werebecho  786   64460-65245
-#&gt; 33        RC3        255                Legelafeto  530 167278-167807
-#&gt; 34        RC4         37                    Meyane 1120   26901-28020</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>get_pps</span><span class='op'>(</span>df <span class='op'>=</span> <span class='va'>villageList1</span>, pop <span class='op'>=</span> <span class='st'>"pop"</span>, m <span class='op'>=</span> <span class='fl'>30</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $`Sample clusters 1`
+#&gt;     village_id              village_name  pop       cum_pop clusters
+#&gt; 1            1                      Libo  530         1-530         
+#&gt; 2            2                     Derka  205       531-735         
+#&gt; 3            3                     Abito  270      736-1005         
+#&gt; 4            4                    Yebiso  260     1006-1265         
+#&gt; 5            5                     Amebo  390     1266-1655         
+#&gt; 6            6                     Mille  345     1656-2000         
+#&gt; 7            7                   Abajala  385     2001-2385         
+#&gt; 8            8              Kutayuwedajo  325     2386-2710         
+#&gt; 9            9                    Abesho  360     2711-3070         
+#&gt; 10          10                 Shenbutie  200     3071-3270         
+#&gt; 11          11                      Jila 1035     3271-4305         
+#&gt; 12          12                     Ayata 1070     4306-5375        1
+#&gt; 13          13                  Werbecho 1250     5376-6625         
+#&gt; 14          14                   Yebello 1150     6626-7775         
+#&gt; 15          15              Mayan mamedo 1430     7776-9205         
+#&gt; 16          16             Mayan Ameraro 1390    9206-10595         
+#&gt; 17          17                 Tinibilka  550   10596-11145        2
+#&gt; 18          18                     Arado  835   11146-11980         
+#&gt; 19          19                 Alekodayo  675   11981-12655         
+#&gt; 20          20                  Weredero  835   12656-13490         
+#&gt; 21          21                    Metero  485   13491-13975         
+#&gt; 22          22                   Layamba  415   13976-14390         
+#&gt; 23          23                   Jerjero  525   14391-14915         
+#&gt; 24          24                    Wushel  530   14916-15445         
+#&gt; 25          25      Berara tuwate tsehay  915   15446-16360        3
+#&gt; 26          26        Berara mata tsehay 1170   16361-17530         
+#&gt; 27          27                   Tikissa  900   17531-18430         
+#&gt; 28          28                Adiss Amba  950   18431-19380         
+#&gt; 29          29                    Genfot 1020   19381-20400         
+#&gt; 30          30          Fela mata tsehay 1040   20401-21440         
+#&gt; 31          31        Fela Tuwate tsehay  960   21441-22400        4
+#&gt; 32          32                   Jerjero 1125   22401-23525         
+#&gt; 33          33                     Arado  675   23526-24200         
+#&gt; 34          34                      Koso 1125   24201-25325         
+#&gt; 35          35                Amorgedele  650   25326-25975         
+#&gt; 36          36                     Ketie  925   25976-26900         
+#&gt; 37          37                    Meyane 1120   26901-28020        5
+#&gt; 38          38                    Tedech  835   28021-28855         
+#&gt; 39          39                     Gobey 1150   28856-30005         
+#&gt; 40          40                      Jema  600   30006-30605         
+#&gt; 41          41                     Golbo  655   30606-31260         
+#&gt; 42          42               Laygodemesh  855   31261-32115         
+#&gt; 43          43             Assinefechign  850   32116-32965        6
+#&gt; 44          44                    Yebase  650   32965-33615         
+#&gt; 45          45                   Anegefa  440   33616-34055         
+#&gt; 46          46                    Chefie  440   34056-34495         
+#&gt; 47          47                 Buko Ager  700   34496-35195         
+#&gt; 48          48             Chorka mender  605   35196-35800         
+#&gt; 49          49              Abulie  Ager  655   35801-36455         
+#&gt; 50          50                    Megera  900   36456-37355         
+#&gt; 51          51                 Chewagisa  870   37356-38225        7
+#&gt; 52          52                  Kermemie  695   38226-38920         
+#&gt; 53          53                Layebelsie  520   38921-39440         
+#&gt; 54          54               Tachebelsie  740   39441-40180         
+#&gt; 55          55                Wedey Ager  865   40181-41045         
+#&gt; 56          56                     Eriko  885   41046-41930         
+#&gt; 57          57                    Guassa 1270   41931-43200        8
+#&gt; 58          58                 Maru Ager  340   43201-43540         
+#&gt; 59          59                   Temsase  500   43541-44040         
+#&gt; 60          60                   Werdero  305   44041-44345         
+#&gt; 61          61              Mehalejebene  350   44346-44695         
+#&gt; 62          62                     Weltu 1095   44695-45790         
+#&gt; 63          63              Mentawu Adem  830   45791-46620         
+#&gt; 64          64                    Mamedo  350   46621-46970         
+#&gt; 65          65                  Kombelti  400   46971-47370         
+#&gt; 66          66                Kedir Ager  390   47371-47760         
+#&gt; 67          67                     Derka 1020   47761-48780        9
+#&gt; 68          68                   Gelbite  330   48781-49110         
+#&gt; 69          69                  Neftegna  510   49111-49620         
+#&gt; 70          70               Mehalgedewa  515   49621-50135         
+#&gt; 71          71                   Gerjaja  420   50135-50555         
+#&gt; 72          72          Meskel Metekosha 1080   50556-51635         
+#&gt; 73          73                   Gobeden  660   51636-52295         
+#&gt; 74          74                 Alyu Ager  690   52296-52985         
+#&gt; 75          75                   Temsase  545   52986-53530         
+#&gt; 76          76                    Gergas 1075   53530-54605       10
+#&gt; 77          77                 Kili Ager  695   54606-55300         
+#&gt; 78          78         Ali Ager/Abu ager  980   55301-56280         
+#&gt; 79          79                    Gobeya  745   56281-57025         
+#&gt; 80          80               Abesho Ager  790   57026-57815         
+#&gt; 81          81                   Webebie 1135   57816-58950         
+#&gt; 82          82                     Arero  610   58951-59560       11
+#&gt; 83          83                 Lebo Ager  850   59561-60410         
+#&gt; 84          84                   Erkoche  905   60411-61315         
+#&gt; 85          85                     Wayna  786   61316-62101         
+#&gt; 86          86               Geshomender  786   62102-62887         
+#&gt; 87          87                 Dejuwasha  786   62888-63673         
+#&gt; 88          88             Abayasin jema  786   63673-64459         
+#&gt; 89          89                 Werebecho  786   64460-65245       12
+#&gt; 90          90                     Motie  786   65246-66031         
+#&gt; 91          91                  Keygedel  786   66032-66817         
+#&gt; 92          92                Tidegebeya 1600   66818-68417         
+#&gt; 93          93                   Mechela  786   68418-69203         
+#&gt; 94          94                  Chichita  786   69204-69989         
+#&gt; 95          95                   Betassa  751   69990-70740       13
+#&gt; 96          96                    Albiko 1000   70741-71740         
+#&gt; 97          97                   Jimetit  750   71741-72490         
+#&gt; 98          98                   Sefiyat  752   72491-73242         
+#&gt; 99          99                   Yejerti  751   73243-73993         
+#&gt; 100        100                    Chermu  751   73994-74744         
+#&gt; 101        101                     Alaye  751   74744-75495         
+#&gt; 102        102                      Jema  751   75496-76246       14
+#&gt; 103        103                   Derenso  751   76247-76997         
+#&gt; 104        104                    Jorkie  751   76998-77748         
+#&gt; 105        105                   Mukedad  465   77749-78213         
+#&gt; 106        106               AbabidaAger  765   78214-78978         
+#&gt; 107        107                    Yinale  645   78979-79623         
+#&gt; 108        108                  Ali Ager  665   79624-80288         
+#&gt; 109        109              Weldiye Ager  475   80289-80763         
+#&gt; 110        110               Dabosh Ager  515   80764-81278       15
+#&gt; 111        111                 Delo Ager  650   81279-81928         
+#&gt; 112        112                  Jimogodo  875   81929-82803         
+#&gt; 113        113        Ababilana karagora  295   82804-83098         
+#&gt; 114        114                  Wereruga  155   83099-83253         
+#&gt; 115        115          Abajeruna zobele  270   83254-83523         
+#&gt; 116        116                Chikaberet  190   83524-83713         
+#&gt; 117        117                 Abakkurie  175   83714-83888         
+#&gt; 118        118                 Abawussen  150   83889-84038         
+#&gt; 119        119                   Ababula  170   84039-84208         
+#&gt; 120        120                    Wujira  155   84209-84363         
+#&gt; 121        121                   Abajila  280   84364-84643         
+#&gt; 122        122                    Kelina  340   84643-84983         
+#&gt; 123        123   2 haraAbawatie,Aba keye  270   84984-85253         
+#&gt; 124        124              Abawdya Ager  390   85254-85643         
+#&gt; 125        125              Eshetie Ager  585   85644-86228         
+#&gt; 126        126 Dolie Ager and Abaya ager 1030   86228-87258       16
+#&gt; 127        127             Bejerond Ager  435   87258-87693         
+#&gt; 128        128               Mussie Ager  505   87694-88198         
+#&gt; 129        129               Tolaye Ager  735   88199-88933         
+#&gt; 130        130                Assen Ager  810   88934-89743         
+#&gt; 131        131               Kurach Ager 1030   89743-90773         
+#&gt; 132        132                       Kat  750   90774-91523         
+#&gt; 133        133               Abageferssa  480   91524-92003       17
+#&gt; 134        134                    Asgedo 1180   92004-93183         
+#&gt; 135        135                Abaweldiye  435   93183-93618         
+#&gt; 136        136                   Terfoch  620   93619-94238         
+#&gt; 137        137                   Gobeden  455   94239-94693         
+#&gt; 138        138                Adiss Amba  720   94694-95413         
+#&gt; 139        139        Sheh Agerna totela 1025   95414-96438         
+#&gt; 140        140              Kotuna Beret  750   96439-97188         
+#&gt; 141        141                    Tigaja  805   97189-97993       18
+#&gt; 142        142             Diblena senta  705   97994-98698         
+#&gt; 143        143                  Bonaager  375   98699-99073         
+#&gt; 144        144                    Acheno  250   99074-99323         
+#&gt; 145        145                 Abuyeager  185   99324-99508         
+#&gt; 146        146                      Leku  445   99509-99953         
+#&gt; 147        147                    Gedero  270  99954-100223         
+#&gt; 148        148                 Doyo Ager  395 100224-100618         
+#&gt; 149        149                   Mentera   NA        100618         
+#&gt; 150        150                     Samte   NA        100618         
+#&gt; 151        151                     Wedey  675 100619-101293         
+#&gt; 152        152                      Ellu  495 101294-101788         
+#&gt; 153        153                     Adela  748 101789-102536         
+#&gt; 154        154                    Jejero  514 102536-103050       19
+#&gt; 155        155                  Derenssa  677 103051-103727         
+#&gt; 156        156                    Matebo  702 103727-104429         
+#&gt; 157        157                   Kenbeto  676 104430-105105         
+#&gt; 158        158                   Korerie  772 105106-105877         
+#&gt; 159        159                    Negewo  585 105876-106462         
+#&gt; 160        160                    Haroye  663 106463-107125         
+#&gt; 161        161                      Hedo  442 107126-107567         
+#&gt; 162        162                     Yegof  885 107568-108452       20
+#&gt; 163        163                    Duleta  945 108452-109397         
+#&gt; 164        164                 Babu ager  970 109397-110367         
+#&gt; 165        165             Chorka Mender 1005 110367-111372         
+#&gt; 166        166                     Tedie  870 111373-112242         
+#&gt; 167        167                   Birbira  870 112243-113112         
+#&gt; 168        168                   Bekimos  750 113113-113862       21
+#&gt; 169        169                 Jewa Ager  875 113863-114737         
+#&gt; 170        170                  Abachufa  510 114738-115247         
+#&gt; 171        171                   Adengur  420 115248-115667         
+#&gt; 172        172                   Abalema  570 115668-116237         
+#&gt; 173        173              Amedu Mender  615 116238-116852         
+#&gt; 174        174                Timhirtbet  535 116853-117387         
+#&gt; 175        175                Shoto Ager  590 117389-117977         
+#&gt; 176        176                   Degendo  645 117978-118622         
+#&gt; 177        177                    Abecho  770 118623-119392       22
+#&gt; 178        178                   Salaysh  585 119393-119977         
+#&gt; 179        179                 Biru Ager  555 119978-120532         
+#&gt; 180        180                   Adarash  890 120533-121422         
+#&gt; 181        181                    Bilido 1000 121422-122422         
+#&gt; 182        182                    Kurkur  520 122423-122942         
+#&gt; 183        183                   Tebasit  470 122943-123412         
+#&gt; 184        184                      Jema  790 123413-124202         
+#&gt; 185        185                      Tiro  580 124203-124782       23
+#&gt; 186        186                Temujegola  925 124783-125707         
+#&gt; 187        187              Jegolasitaya  935 125708-126642         
+#&gt; 188        188           Kutayena Bayush 1020 126643-127662         
+#&gt; 189        189               Temuna Adey  970 127663-128632         
+#&gt; 190        190          Chanchona Weynie  500 128634-129132         
+#&gt; 191        191          Doyenona Bukassa  720 129133-129852       24
+#&gt; 192        192                    Gobeya  840 129853-130692         
+#&gt; 193        193          Kutana Tide Amba  570 130693-131262         
+#&gt; 194        194                    Gelsha  500 131263-131762         
+#&gt; 195        195               Tach Gelsha  580 131763-132342         
+#&gt; 196        196                 Asho Ager  410 132343-132752         
+#&gt; 197        197        Tofina Giragn meda  725 132753-133477         
+#&gt; 198        198            Mendebona feto  870 133478-134347         
+#&gt; 199        199                    Kutaye  580 134348-134927         
+#&gt; 200        200                  Abadeneb  450 134927-135377       25
+#&gt; 201        201              Yererie gora  465 135378-135842         
+#&gt; 202        202                     Kolbo  515 135843-136357         
+#&gt; 203        203                    Wayana  815 136358-137172         
+#&gt; 204        204               Gena Memcha  500 137173-137672         
+#&gt; 205        205           Kundina Yekosso  500 137672-138172         
+#&gt; 206        206            Aba Jigar Ager  565 138173-138737         
+#&gt; 207        207                    Wateya  730 138738-139467         
+#&gt; 208        208          Negwelina Gotera  425 139468-139892         
+#&gt; 209        209           Ginbarona gudfo  595 139893-140487         
+#&gt; 210        210        Abiagerna Betoager  625 140488-141112       26
+#&gt; 211        211            Jema ababorena   NA        141112         
+#&gt; 212        212          Nechirona Jareso  560 141113-141672         
+#&gt; 213        213             Sukina sekela  765 141673-142437         
+#&gt; 214        214        Ashoyena Arbachama  650 142438-143087         
+#&gt; 215        215               Habona tere  595 143088-143682         
+#&gt; 216        216         Dedibona Geferssa  775 143683-144457         
+#&gt; 217        217                    Ankabo  535 144458-144992         
+#&gt; 218        218               Mussie Ager  560 144993-145552         
+#&gt; 219        219              Lebona Derka  590 145553-146142       27
+#&gt; 220        220                  Ayedefer  620 146143-146762         
+#&gt; 221        221                  Abayelos  640 146763-147402         
+#&gt; 222        222                Tach kelad  630 147403-148032         
+#&gt; 223        223                  Tiququro  530 148033-148562         
+#&gt; 224        224                 Aba Alula  510 148563-149072         
+#&gt; 225        225                 Lay kelad  960 149073-150032         
+#&gt; 226        226                 wayu Ager  720 150033-150752         
+#&gt; 227        227                Dawud Ager  780 150753-151532       28
+#&gt; 228        228                  Enessana  840 151533-152372         
+#&gt; 229        229                    Jejero  605 152373-152977         
+#&gt; 230        230                     Kundi  580 152978-153557         
+#&gt; 231        231                  Zawuyoch  580 153558-154137         
+#&gt; 232        232                      Tilk  555 154138-154692         
+#&gt; 233        233                   Goshign  705 154693-155397         
+#&gt; 234        234         Geter(Enkulaloch)  550 155398-155947         
+#&gt; 235        235                 Teje Weha  630 155948-156577         
+#&gt; 236        236                 Aba balie  735 156578-157312       29
+#&gt; 237        237                    Ayteke  720 157313-158032         
+#&gt; 238        238              Eyasuna Jawi  615 150833-158647         
+#&gt; 239        239                    Bikeru  580 158648-159227         
+#&gt; 240        240                  Abajerie  580 159228-159807         
+#&gt; 241        241                  Aba bula  435 159808-160242         
+#&gt; 242        242                Aba Jareso  535 160243-160777         
+#&gt; 243        243               Amara Genda  630 160778-161407         
+#&gt; 244        244           Erefona cherkos  620 161408-162027         
+#&gt; 245        245      Legelafetona Alebeko  645 162028-162672       30
+#&gt; 246        246                   Amboasa  465 162673-163137         
+#&gt; 247        247   Kemerdengayna Menderoch  435 163138-163572         
+#&gt; 248        248                      Ambo  510 163573-164082         
+#&gt; 249        249                      Soni  525 164083-164607         
+#&gt; 250        250                  Birbirti  445 164608-165052         
+#&gt; 251        251                    Gedebo  690 165053-165742         
+#&gt; 252        252                      Meyo  520 165743-166262         
+#&gt; 253        253                   Sereser  480 166263-166742         
+#&gt; 254        254                      Rera  535 166743-167277         
+#&gt; 255        255                Legelafeto  530 167278-167807       31
+#&gt; 256        256           Chichitana kotu  400 167808-168207         
+#&gt; 257        257     AbarebaAgerna Shariya  570 168208-168777         
+#&gt; 258        258                     Beret  495 168778-169272         
+#&gt; 259        259                 Horu Ager  550 169273-169822         
+#&gt; 260        260                   Tatessa  620 169823-170442         
+#&gt; 261        261                  Aba Doyo  645 170443-171087         
+#&gt; 262        262                 Jeba Ager  555 171088-171642         
+#&gt; 263        263             Aba Jibo Ager  545 171643-172187         
+#&gt; 264        264                   Babogna  760 172188-172947         
+#&gt; 265        265                    Gadula  630 172948-173577       32
+#&gt; 266        266                   Kilkilo  555 173578-174132         
+#&gt; 267        267                  Gemeboba  490 174133-174622         
+#&gt; 268        268                    Satiro  515 174623-175137         
+#&gt; 269        269                 Adem Ager  535 175138-175672         
+#&gt; 270        270                     Dedie  445 175673-176117         
+#&gt; 271        271           Jaferena Teloch  445 176118-176562         
+#&gt; 272        272              Yimerie Ager  875 176563-177437         
+#&gt; 273        273                   Endulti  610 177438-178047         
+#&gt; 274        274                     Washa  870 178048-178917       33
+#&gt; 275        275                     Tucha  895 178918-179812         
+#&gt; 276        276                     Kundo  750 179813-180562         
+#&gt; 277        277                     Abayo  585 180563-181147         
+#&gt; 278        278                      Gero  765 181148-181912         
+#&gt; 279        279                    Wahilo  790 181913-182702         
+#&gt; 280        280                  Senselet  475 182702-183177         
+#&gt; 281        281                      Dego  945 183178-184122       34
+#&gt; 
+#&gt; $`Sample clusters 2`
+#&gt;    cluster_id    ctype village_id              village_name  pop       cum_pop
+#&gt; 1           1  primary         12                     Ayata 1070     4306-5375
+#&gt; 2           2  primary         17                 Tinibilka  550   10596-11145
+#&gt; 3           3  primary         25      Berara tuwate tsehay  915   15446-16360
+#&gt; 4           4  primary         31        Fela Tuwate tsehay  960   21441-22400
+#&gt; 5           5 reserved         37                    Meyane 1120   26901-28020
+#&gt; 6           6  primary         43             Assinefechign  850   32116-32965
+#&gt; 7           7  primary         51                 Chewagisa  870   37356-38225
+#&gt; 8           8  primary         57                    Guassa 1270   41931-43200
+#&gt; 9           9  primary         67                     Derka 1020   47761-48780
+#&gt; 10         10  primary         76                    Gergas 1075   53530-54605
+#&gt; 11         11  primary         82                     Arero  610   58951-59560
+#&gt; 12         12 reserved         89                 Werebecho  786   64460-65245
+#&gt; 13         13  primary         95                   Betassa  751   69990-70740
+#&gt; 14         14  primary        102                      Jema  751   75496-76246
+#&gt; 15         15  primary        110               Dabosh Ager  515   80764-81278
+#&gt; 16         16  primary        126 Dolie Ager and Abaya ager 1030   86228-87258
+#&gt; 17         17  primary        133               Abageferssa  480   91524-92003
+#&gt; 18         18  primary        141                    Tigaja  805   97189-97993
+#&gt; 19         19  primary        154                    Jejero  514 102536-103050
+#&gt; 20         20  primary        162                     Yegof  885 107568-108452
+#&gt; 21         21  primary        168                   Bekimos  750 113113-113862
+#&gt; 22         22  primary        177                    Abecho  770 118623-119392
+#&gt; 23         23 reserved        185                      Tiro  580 124203-124782
+#&gt; 24         24  primary        191          Doyenona Bukassa  720 129133-129852
+#&gt; 25         25  primary        200                  Abadeneb  450 134927-135377
+#&gt; 26         26  primary        210        Abiagerna Betoager  625 140488-141112
+#&gt; 27         27  primary        219              Lebona Derka  590 145553-146142
+#&gt; 28         28  primary        227                Dawud Ager  780 150753-151532
+#&gt; 29         29  primary        236                 Aba balie  735 156578-157312
+#&gt; 30         30  primary        245      Legelafetona Alebeko  645 162028-162672
+#&gt; 31         31 reserved        255                Legelafeto  530 167278-167807
+#&gt; 32         32  primary        265                    Gadula  630 172948-173577
+#&gt; 33         33  primary        274                     Washa  870 178048-178917
+#&gt; 34         34  primary        281                      Dego  945 183178-184122
+#&gt; 
+#&gt; $`Reserved clusters`
+#&gt; [1] 23 12 31  5
+#&gt; </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

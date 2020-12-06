@@ -4,7 +4,7 @@
     <loc>https://nutriverse.io/smartr/index.html</loc>
   </url>
   <url>
-    <loc>https://nutriverse.io/smartr/reference/clusterList.html</loc>
+    <loc>https://nutriverse.io/smartr/reference/calculate_ss_hh.html</loc>
   </url>
   <url>
     <loc>https://nutriverse.io/smartr/reference/create_gsheet_form.html</loc>
@@ -20,5 +20,11 @@
   </url>
   <url>
     <loc>https://nutriverse.io/smartr/reference/smartr.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.io/smartr/reference/villageList1.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.io/smartr/reference/villageList2.html</loc>
   </url>
 </urlset>
