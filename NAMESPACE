@@ -3,6 +3,7 @@
 export(create_gsheet_form)
 export(get_pps)
 export(get_si)
+export(get_ss_hh)
 export(roll_sum_range)
 importFrom(magrittr,"%>%")
 importFrom(stringr,str_replace_all)
