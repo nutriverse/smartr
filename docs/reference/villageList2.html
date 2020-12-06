@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get sampling interval — get_si • smartr</title>
+<title>Example list of villages with population sizes — villageList2 • smartr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Get sampling interval — get_si" />
-<meta property="og:description" content="Get sampling interval" />
+<meta property="og:title" content="Example list of villages with population sizes — villageList2" />
+<meta property="og:description" content="Example list of villages with population sizes" />
 <meta property="og:image" content="https://nutriverse.io/smartr/logo.png" />
 
 
@@ -122,49 +122,45 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get sampling interval</h1>
+    <h1>Example list of villages with population sizes</h1>
     
-    <div class="hidden name"><code>get_si.Rd</code></div>
+    <div class="hidden name"><code>villageList2.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get sampling interval</p>
+    <p>Example list of villages with population sizes</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_si</span><span class='op'>(</span><span class='va'>pop</span>, <span class='va'>su</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='va'>villageList2</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>pop</th>
-      <td><p>Total population</p></td>
-    </tr>
-    <tr>
-      <th>su</th>
-      <td><p>Number of sampling units to be selected</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An integer value for the sampling interval</p>
+    <p>A tibble with 10 rows and 2 columns:</p>
+<p>| **Variable** | **Description** |
+| :--- | :--- |
+| *village_id* | Village identifier |
+| *pop* | Village population size |</p>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p>SMART, Action Against Hunger-Canada, and Technical Advisory Group</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_si</span><span class='op'>(</span><span class='va'>villageList1</span><span class='op'>$</span><span class='va'>pop</span>, su <span class='op'>=</span> <span class='fl'>30</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   [1] 17  6  9  8 13 11 12 10 12  6 34 35 41 38 47 46 18 27 22 27 16 13 17 17 30
-#&gt;  [26] 39 30 31 34 34 32 37 22 37 21 30 37 27 38 20 21 28 28 21 14 14 23 20 21 30
-#&gt;  [51] 29 23 17 24 28 29 42 11 16 10 11 36 27 11 13 13 34 11 17 17 14 36 22 23 18
-#&gt;  [76] 35 23 32 24 26 37 20 28 30 26 26 26 26 26 26 26 53 26 26 25 33 25 25 25 25
-#&gt; [101] 25 25 25 25 15 25 21 22 15 17 21 29  9  5  9  6  5  5  5  5  9 11  9 13 19
-#&gt; [126] 34 14 16 24 27 34 25 16 39 14 20 15 24 34 25 26 23 12  8  6 14  9 13 NA NA
-#&gt; [151] 22 16 24 17 22 23 22 25 19 22 14 29 31 32 33 29 29 25 29 17 14 19 20 17 19
-#&gt; [176] 21 25 19 18 29 33 17 15 26 19 30 31 34 32 16 24 28 19 16 19 13 24 29 19 15
-#&gt; [201] 15 17 27 16 16 18 24 14 19 20 NA 18 25 21 19 25 17 18 19 20 21 21 17 17 32
-#&gt; [226] 24 26 28 20 19 19 18 23 18 21 24 24 20 19 19 14 17 21 20 21 15 14 17 17 14
-#&gt; [251] 23 17 16 17 17 13 19 16 18 20 21 18 18 25 21 18 16 17 17 14 14 29 20 29 29
-#&gt; [276] 25 19 25 26 15 31</div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='va'>villageList2</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 10 x 2</span><span>
+#&gt;    village_id   pop
+#&gt;    </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> Village 1    500
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> Village 2    400
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> Village 3    160
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> Village 4    650
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> Village 5    520
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> Village 6    640
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> Village 7    700
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> Village 8    100
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> Village 9    470
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> Village 10    60</div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
