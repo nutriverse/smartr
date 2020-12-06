@@ -10,6 +10,13 @@ has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![R build
+status](https://github.com/nutriverse/smartr/workflows/R-CMD-check/badge.svg)](https://github.com/nutriverse/smartr/actions)
+[![R build
+status](https://github.com/nutriverse/smartr/workflows/test-coverage/badge.svg)](https://github.com/nutriverse/smartr/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/nutriverse/smartr/branch/master/graph/badge.svg)](https://codecov.io/gh/nutriverse/smartr?branch=master)
+[![CodeFactor](https://www.codefactor.io/repository/github/nutriverse/smartr/badge)](https://www.codefactor.io/repository/github/nutriverse/smartr)
 <!-- badges: end -->
 
 [SMART](https://www.smartmethodology.org) is an inter-agency initiative
