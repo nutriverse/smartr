@@ -17,6 +17,7 @@
 #' @keywords internal
 #' @importFrom magrittr %>%
 #' @importFrom stringr str_replace_all
+#' @importFrom shiny runApp
 #'
 #
 ################################################################################
