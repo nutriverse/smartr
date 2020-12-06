@@ -192,7 +192,7 @@ ui <- dashboardPage(
                 )
               ),
               valueBox(
-                value = "X",
+                value = textOutput("ss_anthro"),
                 subtitle = "Children to be included",
                 icon = icon(name = "child",
                             lib = "font-awesome",
@@ -201,7 +201,7 @@ ui <- dashboardPage(
                 width = 6
               ),
               valueBox(
-                value = "Y",
+                value = textOutput("ss_anthro_hh"),
                 subtitle = "Households to be included",
                 icon = icon(name = "house-user",
                             lib = "font-awesome",
