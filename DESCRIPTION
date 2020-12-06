@@ -23,7 +23,8 @@ Suggests:
     anthrocheckr (>= 0.1.0),
     dplyr,
     spelling,
-    googlesheets4
+    googlesheets4,
+    covr
 Remotes: 
     ernestguevarra/sampsizer,
     nutriverse/anthrocheckr
