@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# smartr: Tools for Nutritional Status and Mortality Rate Assessments and Surveys
+# smartr: Tools for Nutritional Status and Mortality Rate Assessments and Surveys <img src="man/figures/logo.png" width="200px" align="right" />
 
 <!-- badges: start -->
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
@@ -24,13 +24,17 @@ knitr::opts_chunk$set(
 
 ## What does `smartr` do?
 
+
+
 ## Installation
 
+<!---
 You can install the released version of `smartr` from [CRAN](https://CRAN.R-project.org) with:
 
 ```{r install_cran, echo = TRUE, eval = FALSE}
 install.packages("smartr")
 ```
+--->
 
 You can install the development version of `smartr` from [GitHub](https://github.com/nutriverse/smartr):
 

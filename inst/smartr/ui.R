@@ -105,9 +105,10 @@ ui <- dashboardPage(
               radioButtons(
                 inputId = "survey_sampling_type",
                 label = "Sampling",
-                choices = c("Random", "Cluster"),
+                choices = c("Random" = "srs",
+                            "Cluster" = "cluster"),
                 inline = TRUE,
-                selected = "Cluster"
+                selected = "cluster"
               ),
               checkboxInput(
                 inputId = "fpc",
@@ -115,7 +116,30 @@ ui <- dashboardPage(
                 value = FALSE
               )
             )
-          )
+          ),
+          column(
+            width = 4,
+            box(
+              title = "Sampling list",
+              width = NULL,
+              solidHeader = FALSE,
+              status = "success",
+              uiOutput("sample_list"),
+              radioButtons(
+                inputId = "sample_input_type",
+                label = "Provide list of sampling units",
+                choices = c("Upload" = "upload",
+                            "Enter" = "enter",
+                            "ODK" = "odk",
+                            "Google Sheets" = "gsheets"),
+                selected = "upload",
+                inline = TRUE
+              ),
+              uiOutput("sample_list_input"),
+              uiOutput("sample_list_vars")
+            )
+          ),
+          uiOutput("sample_total_pop")
         ),
         fluidRow(
           column(
@@ -192,7 +216,7 @@ ui <- dashboardPage(
                 )
               ),
               valueBox(
-                value = "X",
+                value = textOutput("ss_anthro_child"),
                 subtitle = "Children to be included",
                 icon = icon(name = "child",
                             lib = "font-awesome",
@@ -201,7 +225,7 @@ ui <- dashboardPage(
                 width = 6
               ),
               valueBox(
-                value = "Y",
+                value = textOutput("ss_anthro_hh"),
                 subtitle = "Households to be included",
                 icon = icon(name = "house-user",
                             lib = "font-awesome",
@@ -279,34 +303,7 @@ ui <- dashboardPage(
             )
           )
         ),
-        fluidRow(
-          box(
-            title = "Random number table",
-            width = 4,
-            solidHeader = TRUE,
-            status = "success"
-          ),
-          box(
-            title = "Random number table",
-            width = 8,
-            solidHeader = FALSE,
-            status = "success"
-          )
-        ),
-        fluidRow(
-          box(
-            title = "Cluster sampling",
-            width = 4,
-            solidHeader = TRUE,
-            status = "success"
-          ),
-          box(
-            title = "Cluster sampling",
-            width = 8,
-            solidHeader = FALSE,
-            status = "success"
-          )
-        )
+        uiOutput("sample_table")
       ),
       tabItem(
         tabName = "training",

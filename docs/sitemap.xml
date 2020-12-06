@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://nutriverse.io/smartr/index.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.io/smartr/reference/clusterList.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.io/smartr/reference/create_gsheet_form.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.io/smartr/reference/get_pps.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.io/smartr/reference/get_si.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.io/smartr/reference/roll_sum_range.html</loc>
+  </url>
+  <url>
+    <loc>https://nutriverse.io/smartr/reference/smartr.html</loc>
+  </url>
+</urlset>

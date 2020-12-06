@@ -4,12 +4,15 @@
 \alias{create_gsheet_form}
 \title{Create a Google Sheets data entry form}
 \usage{
-create_gsheet_form(name, sheets = NULL)
+create_gsheet_form(name, sheets = NULL, view = TRUE)
 }
 \arguments{
 \item{name}{A string to name the newly created spreadsheet.}
 
 \item{sheets}{Optional input for initialising worksheets.}
+
+\item{view}{Logical. Should the newly created sheet be opened in the
+current browser? Default to TRUE.}
 }
 \value{
 A spreadsheet with specified name and specified sheets

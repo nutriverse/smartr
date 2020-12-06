@@ -25,6 +25,6 @@ Perform proportional to population size (PPS) sampling based on SMART
 approach
 }
 \examples{
-get_pps(df = clusterList, pop = "pop", m = 30)
+get_pps(df = villageList1, pop = "pop", m = 30)
 
 }

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# smartr: Tools for Nutritional Status and Mortality Rate Assessments and Surveys
+# smartr: Tools for Nutritional Status and Mortality Rate Assessments and Surveys <img src="man/figures/logo.png" width="200px" align="right" />
 
 <!-- badges: start -->
 
@@ -28,12 +28,14 @@ perform the various analysis used in
 
 ## Installation
 
-You can install the released version of `smartr` from
-[CRAN](https://CRAN.R-project.org) with:
+<!---
+You can install the released version of `smartr` from [CRAN](https://CRAN.R-project.org) with:
 
-``` r
+
+```r
 install.packages("smartr")
 ```
+--->
 
 You can install the development version of `smartr` from
 [GitHub](https://github.com/nutriverse/smartr):

@@ -4,12 +4,12 @@
 \alias{get_si}
 \title{Get sampling interval}
 \usage{
-get_si(pop, m)
+get_si(pop, su)
 }
 \arguments{
 \item{pop}{Total population}
 
-\item{m}{Number of clusters to be selected}
+\item{su}{Number of sampling units to be selected}
 }
 \value{
 An integer value for the sampling interval
@@ -18,6 +18,6 @@ An integer value for the sampling interval
 Get sampling interval
 }
 \examples{
-get_si(clusterList$pop, m = 30)
+get_si(villageList1$pop, su = 30)
 
 }

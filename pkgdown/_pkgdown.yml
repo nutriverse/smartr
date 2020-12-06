@@ -1,0 +1,51 @@
+title: smartr
+
+url: https://nutriverse.io/smartr
+
+template:
+  params:
+    bootswatch: yeti
+    ganalytics:
+
+navbar:
+  type: inverse
+  structure:
+    left: [home, intro, reference, articles, news]
+    right: [twitter, linkedin, github]
+
+  components:
+    #articles:
+    #  text: Articles
+    #  menu:
+    #  - text: "Check ranges and legal values"
+    #    href: articles/rl.html
+    twitter:
+      icon: "fab fa-twitter fa-lg"
+      href: https://twitter.com/katilingban
+    linkedin:
+      icon: "fab fa-linkedin fa-lg"
+      href: https://www.linkedin.com/company/katilingban/
+
+home:
+  links:
+  - text: Read more about SMART
+    href: https://smartmethodology.org/
+
+reference:
+  - title: Description
+    contents:
+    - smartr
+
+  - title: Sample size and sampling
+    contents:
+    - roll_sum_range
+    - get_si
+    - get_pps
+
+  - title: Utilities
+    contents:
+    - create_gsheet_form
+
+  - title: Dataset
+    contents:
+    - clusterList

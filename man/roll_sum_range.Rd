@@ -23,6 +23,6 @@ A vector of cumulative population size range
 Get the cumulative population size range
 }
 \examples{
-roll_sum_range(v = clusterList$pop)
+roll_sum_range(v = villageList1$pop)
 
 }
