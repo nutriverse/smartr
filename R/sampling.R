@@ -145,7 +145,7 @@ get_pps <- function(df, pop, m) {
   rc <- sample(x = 1:nrow(y), size = m_rc - m)
 
   ## Create cluser ID
-  cluster_id <- 1:nrow(y)
+  cluster_id <- seq_len(nrow(y))
 
   ## Reserved cluster
   ctype <- ifelse(cluster_id %in% rc, "reserved", "primary")
