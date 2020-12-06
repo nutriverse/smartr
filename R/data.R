@@ -16,10 +16,31 @@
 #' @source SMART, Action Against Hunger-Canada, and Technical Advisory Group
 #'
 #' @examples
-#' clusterList
+#' villageList1
 #'
 #'
 #
 ################################################################################
-"clusterList"
+"villageList1"
 
+
+################################################################################
+#
+#'
+#' Example list of villages with population sizes
+#'
+#' @format A tibble with 10 rows and 2 columns:
+#'
+#' | **Variable** | **Description** |
+#' | :--- | :--- |
+#' | *village_id* | Village identifier |
+#' | *pop* | Village population size |
+#'
+#' @source SMART, Action Against Hunger-Canada, and Technical Advisory Group
+#'
+#' @examples
+#' villageList2
+#'
+#
+################################################################################
+"villageList2"
