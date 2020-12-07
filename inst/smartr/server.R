@@ -215,7 +215,7 @@ server <- function(input, output, session) {
             inputId = "n_clusters",
             label = "Number of clusters",
             min = 25,
-            max = 200,
+            max = 60,
             value = 30,
             step = 1
           ),
@@ -245,4 +245,63 @@ server <- function(input, output, session) {
       )
     }
   })
+
+  ## Training panel ############################################################
+
+  ## Read file input
+  std_test_df <- reactive({
+    inFile <- input$std_test_data
+    if (is.null(inFile)) return(NULL)
+
+    if (stringr::str_detect(string = inFile$datapath, pattern = ".csv")) {
+      x <- read.csv(file = inFile$datapath)
+    } else {
+      x <- readxl::read_excel(path = inFile$datapath, skip = 1)
+
+      x <- x[ , apply(X = x, MARGIN = 2, FUN = function(x) all(!is.na(x)))]
+
+      x <- x %>%
+        dplyr::mutate(subject = 1:10) %>%
+        dplyr::relocate(subject, .before = names(x)[1])
+
+      x <- tidyr::pivot_longer(data = x,
+                               cols = names(x)[2]:names(x)[length(names(x))],
+                               names_to = "measure_type",
+                               values_to = "measure_value")
+
+      measure_round <- stringr::str_extract(x$measure_type,
+                                            pattern = "[0-9]{1}")
+
+      observer <- vector(mode = "integer", length = nrow(x))
+
+      for (i in unique(x$subject)) {
+        y <- subset(x, subject == i)
+        nObservers <- nrow(y) / 6
+        z <- NULL
+        for (j in seq_len(nObservers)) {
+          z <- c(z, rep(j - 1, 6))
+        }
+        observer[x$subject == i] <- z
+      }
+
+      observer <- paste("Enumerator ", observer, sep = "")
+      observer <- ifelse(observer == "Enumerator 0", "Supervisor", observer)
+
+      x$measure_type = stringr::str_extract(x$measure_type,
+                                            pattern = "[A-Za-z]{6}|[A-Za-z]{4}") %>%
+        tolower()
+
+      x <- tibble::tibble(observer, x, measure_round)
+    }
+
+    return(x)
+  })
+
+  ##
+  output$std_test_table <- DT::renderDT(
+    expr = std_test_df(),
+    options = list(scrollX = TRUE, pageLength = 20)
+  )
 }
+
+

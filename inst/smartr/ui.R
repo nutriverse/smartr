@@ -319,10 +319,11 @@ ui <- dashboardPage(
             )
           ),
           box(
-            title = "Identify variables",
+            title = "Standardisation Test Data",
             width = 8,
-            solidHeader = TRUE,
-            status = "success"
+            solidHeader = FALSE,
+            status = "success",
+            DT::DTOutput("std_test_table")
           )
         )
       )
