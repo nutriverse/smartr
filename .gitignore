@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 .DS_Store
-rsconnect
+inst/smartr/rsconnect
+inst/smartr/rsconnect/shinyapps.io/katilingban/smartr.dcf
