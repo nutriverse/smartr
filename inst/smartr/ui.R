@@ -309,7 +309,7 @@ ui <- dashboardPage(
         tabName = "training",
         fluidRow(
           box(
-            title = "Standardisation Test Data",
+            title = "Anthropometric Standardisation Settings",
             width = 4,
             solidHeader = TRUE,
             status = "success",
@@ -318,14 +318,20 @@ ui <- dashboardPage(
               label = "Upload standardisation test data"
             )
           ),
-          box(
-            title = "Standardisation Test Data",
-            width = 8,
-            solidHeader = FALSE,
-            status = "success",
-            DT::DTOutput("std_test_table")
-          )
+          uiOutput("std_test_outputs")
         )
+      ),
+      tabItem(
+        tabName = "anthropometry"
+      ),
+      tabItem(
+        tabName = "death"
+      ),
+      tabItem(
+        tabName = "food"
+      ),
+      tabItem(
+        tabName = "options"
       )
     )
   )
