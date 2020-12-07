@@ -25,6 +25,7 @@ if(!require(plotly)) install.packages("plotly")
 if(!require(remotes)) install.packages("remotes")
 
 ## Load dev packages
+if(!require(smartr)) remotes::install_github("nutriverse/smartr")
 if(!require(sampsizer)) remotes::install_github("ernestguevarra/sampsizer")
 if(!require(anthrocheckr)) remotes::install_github("nutriverse/anthrocheckr")
 if(!require(nutricheckr)) remotes::install_github("nutriverse/nutricheckr")
