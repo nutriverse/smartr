@@ -155,7 +155,34 @@ server <- function(input, output, session) {
       expr = sample_cluster_list()[[1]],
       options = list(scrollX = TRUE, pageLength = 20)
     )
+
+    output$sample_list_reserved <- renderText({
+      paste("Reserved clusters: ",
+            paste(sample_cluster_list()[[3]], collapse = ", "),
+            sep = "")
+    })
+
+    output$download_sample_list <- renderUI({
+      downloadButton(
+        outputId = "download_sample_excel",
+        label = "",
+        icon = icon(name = "file-excel",
+                    lib = "font-awesome",
+                    class = "fa-small"),
+        class = "btn-primary"
+      )
+    })
   })
+
+  ##
+  output$download_sample_excel <- downloadHandler(
+    filename = function() {
+      paste("sample_list_", Sys.Date(), ".xlsx", sep = "")
+    },
+    content = function(file) {
+      openxlsx::write.xlsx(sample_cluster_list()[[2]], file)
+    }
+  )
 
   ##
   output$sample_table <- renderUI({
@@ -195,10 +222,10 @@ server <- function(input, output, session) {
           actionButton(
             inputId = "assign_clusters",
             label = "Assign clusters",
-            icon = icon(name = "border-all",
+            icon = icon(name = "table",
                         lib = "font-awesome",
                         class = "fa-small"),
-            class = "btn-success"
+            class = "btn-primary"
           )
         ),
         box(
@@ -206,7 +233,14 @@ server <- function(input, output, session) {
           width = 8,
           solidHeader = FALSE,
           status = "success",
-          DT::DTOutput("sample_list_table")
+          DT::DTOutput("sample_list_table"),
+          hr(),
+          div(style="display:inline-block; vertical-align:middle;",
+            h4(textOutput("sample_list_reserved")),
+          ),
+          div(style="display:inline-block; vertical-align:middle; text-align:right; width:100%;",
+            uiOutput("download_sample_list")
+          )
         )
       )
     }

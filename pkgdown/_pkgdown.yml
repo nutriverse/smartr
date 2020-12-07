@@ -43,6 +43,10 @@ reference:
     - get_si
     - get_pps
 
+  - title: Shiny app
+    contents:
+    - run_smartr
+
   - title: Utilities
     contents:
     - create_gsheet_form
